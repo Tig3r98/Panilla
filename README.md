@@ -1,8 +1,7 @@
 # Panilla
 Panilla (the name) is a combination of the word Packet and Vanilla (as in Vanilla Minecraft).
 
-[Support the development of this plugin and purchase a precompiled .jar file on SpigotMC](https://www.spigotmc.org/resources/65694/) (or compile your own for free)
-
+This is a fork of the original [original project](https://www.spigotmc.org/resources/65694/) that only supports recent Paper servers and is easier to compile.
 
 ## Overview
 Panilla is software to prevent abusive NBT and packets on Minecraft servers.
@@ -26,14 +25,12 @@ With this software, you will be able to prevent:
 Currently Panilla supports:
 - Paper 1.20.6
 - Paper 1.21-1.21.1
-  
-  **CraftBukkit includes any CraftBukkit derivatives (Spigot, Paper, Folia, etc)*
+- Paper 1.21-3 (untested)
 
-If you would like support for a server platform or Minecraft version that is not listed, please make an issue on GitHub.  
+**This fork does NOT support Spigot**. It supports Paper derivatives (Purpur, etc.) including Folia. 
 
 ## Compiling
-In order for you to compile Panilla, you will need to use [BuildTools, by SpigotMC](https://www.spigotmc.org/wiki/buildtools), and build each version of CraftBukkit which is supported by Panilla.
-When you run BuildTools, it will add the dependencies required (CraftBukkit/Bukkit) to your local Maven repository.
-From there, you can compile the project with `./gradlew build`. The output plugin jars file will located in the `target/` directory.
+This fork uses Paperweight, so you won't need to compile Spigot or Paper beforehand.
+You can compile the project with the shadowJar task or by running `./gradlew build`. The output plugin jars file will located in the `target/` directory.
 
-Java 17 is required to build Panilla.
+Java 21 is required to build Panilla.
