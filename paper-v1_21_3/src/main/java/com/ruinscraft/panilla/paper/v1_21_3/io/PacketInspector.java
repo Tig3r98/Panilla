@@ -1,4 +1,4 @@
-package com.ruinscraft.panilla.paper.v1_20_6.io;
+package com.ruinscraft.panilla.paper.v1_21_3.io;
 
 import com.ruinscraft.panilla.api.IPanilla;
 import com.ruinscraft.panilla.api.IPanillaPlayer;
@@ -9,7 +9,7 @@ import com.ruinscraft.panilla.api.exception.NbtNotPermittedException;
 import com.ruinscraft.panilla.api.io.IPacketInspector;
 import com.ruinscraft.panilla.api.nbt.INbtTagCompound;
 import com.ruinscraft.panilla.api.nbt.checks.NbtChecks;
-import com.ruinscraft.panilla.paper.v1_20_6.nbt.NbtTagCompound;
+import com.ruinscraft.panilla.paper.v1_21_3.nbt.NbtTagCompound;
 import de.tr7zw.changeme.nbtapi.NBT;
 import net.minecraft.core.component.TypedDataComponent;
 import net.minecraft.network.protocol.game.*;
@@ -49,8 +49,8 @@ public class PacketInspector implements IPacketInspector {
         if (item == null || item.isEmpty() || item.getComponents().isEmpty()) return;
 
         NbtTagCompound tag = new NbtTagCompound(NBT.itemStackToNBT(item.getBukkitStack()).getCompound("components"));
-        String itemClass = item.getDescriptionId();
-        String packetClass = "ServerboundContainerClickPacket";
+        String itemClass = item.getItem().getDescriptionId();
+        String packetClass = "PacketPlayInWindowClick";
 
         NbtChecks.checkPacketPlayIn(slot, tag, itemClass, packetClass, panilla);
     }
@@ -65,7 +65,7 @@ public class PacketInspector implements IPacketInspector {
         if (item == null || item.isEmpty() || item.getComponents().isEmpty()) return;
 
         NbtTagCompound tag = new NbtTagCompound(NBT.itemStackToNBT(item.getBukkitStack()).getCompound("components"));
-        String itemClass = item.getDescriptionId();
+        String itemClass = item.getItem().getDescriptionId();
         String packetClass = "PacketPlayInSetCreativeSlot";
 
         NbtChecks.checkPacketPlayIn(slot, tag, itemClass, packetClass, panilla);
@@ -135,7 +135,7 @@ public class PacketInspector implements IPacketInspector {
         Entity entity = null;
 
         for (ServerLevel worldServer : MinecraftServer.getServer().getAllLevels()) {
-            entity = worldServer.getEntityLookup().get(entityId);
+            entity = worldServer.moonrise$getEntityLookup().get(entityId);
             if (entity != null) break;
         }
 
@@ -191,7 +191,7 @@ public class PacketInspector implements IPacketInspector {
         Entity entity = null;
 
         for (ServerLevel worldServer : MinecraftServer.getServer().getAllLevels()) {
-            entity = worldServer.getEntityLookup().get(entityId);
+            entity = worldServer.moonrise$getEntityLookup().get(entityId);
             if (entity != null) break;
         }
 
