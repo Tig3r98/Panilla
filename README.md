@@ -23,11 +23,17 @@ With this software, you will be able to prevent:
 
 ## Supported Platforms
 Currently Panilla supports:
-- Paper 1.20.6
-- Paper 1.21-1.21.1
-- Paper 1.21-3 (untested)
+- Paper 1.21.4 (untested)
 
-**This fork does NOT support Spigot**. It supports Paper derivatives (Purpur, etc.) including Folia. 
+**This fork does NOT support CraftBukkit/Spigot**. It supports Paper derivatives (Purpur, etc.) including Folia. 
+
+## Commands
+panilla: Information about your Panilla instance (permission: panilla.command)
+panilla debug: Show debug information (permission: panilla.command.debug)
+
+## Permissions
+panilla.log.chat: View warning logs in chat if enabled in the config
+panilla.bypass: Bypass packet checks
 
 ## Compiling
 This fork uses Paperweight, so you won't need to compile Spigot or Paper beforehand.

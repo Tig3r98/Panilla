@@ -4,17 +4,14 @@ rootProject.name = 'panilla'
 include(':panilla-api')
 
 // bukkit
-include(':panilla-paper-v1_20_6')
-include(':panilla-paper-v1_21')
-include(':panilla-paper-v1_21_3')
-include(':panilla-bukkit')
+include(':panilla-paper-v1_21_4')
+include(':panilla-paper')
 
 // api
 project(':panilla-api').projectDir = file('api')
 
 // bukkit
-project(':panilla-paper-v1_20_6').projectDir = file('paper-v1_20_6')
-project(':panilla-paper-v1_21').projectDir = file('paper-v1_21')
-project(':panilla-paper-v1_21_3').projectDir = file('paper-v1_21_3')
-project(':panilla-bukkit').projectDir = file('bukkit')
+project(':panilla-paper-v1_21_4').projectDir = file('paper-v1_21_4')
+project(':panilla-paper').projectDir = file('paper')
+include 'panilla-paper-v1_21_4'
 
