@@ -22,17 +22,21 @@ With this software, you will be able to prevent:
 - and more abusive NBT
 
 ## Supported Platforms
+
+**Panilla 2.x is untested software. At the moment, it just adds compatibility for newer versions to old checks.**
+
 Currently Panilla supports:
-- Paper 1.21.4 (untested)
+- Paper 1.21.4 (Panilla 2.1.0 recommended)
+- Paper 1.21.5 (untested)
 
 **This fork does NOT support CraftBukkit/Spigot**. It supports Paper derivatives (Purpur, etc.) including Folia. 
 
 ## Commands
-panilla: Information about your Panilla instance (permission: panilla.command)
+panilla: Information about your Panilla instance (permission: panilla.command)\
 panilla debug: Show debug information (permission: panilla.command.debug)
 
 ## Permissions
-panilla.log.chat: View warning logs in chat if enabled in the config
+panilla.log.chat: View warning logs in chat if enabled in the config\
 panilla.bypass: Bypass packet checks
 
 ## Compiling
