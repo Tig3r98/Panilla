@@ -161,38 +161,41 @@ public class PanillaPlugin extends JavaPlugin implements IPanilla {
 
     @SuppressWarnings("deprecation")
     private void initVersion() {
-
-        Integer[] versions = {4189, 4325};
-        // Paper 1.21.4
-        if  (Bukkit.getUnsafe().getDataVersion() == 4189) {
-            packetSerializerClass = com.ruinscraft.panilla.paper.v1_21_4.io.dplx.PacketSerializer.class;
-            protocolConstants = new IProtocolConstants() {
-                @Override
-                public int maxBookPages() {
-                    return 100;
-                }
-            };
-            playerInjector = new com.ruinscraft.panilla.paper.v1_21_4.io.PlayerInjector();
-            packetInspector = new com.ruinscraft.panilla.paper.v1_21_4.io.PacketInspector(this);
-            containerCleaner = new com.ruinscraft.panilla.paper.v1_21_4.InventoryCleaner(this);
-        } else if  (Bukkit.getUnsafe().getDataVersion() == 4325) {
-            packetSerializerClass = com.ruinscraft.panilla.paper.v1_21_5.io.dplx.PacketSerializer.class;
-            protocolConstants = new IProtocolConstants() {
-                @Override
-                public int maxBookPages() {
-                    return 100;
-                }
-            };
-            playerInjector = new com.ruinscraft.panilla.paper.v1_21_5.io.PlayerInjector();
-            packetInspector = new com.ruinscraft.panilla.paper.v1_21_5.io.PacketInspector(this);
-            containerCleaner = new com.ruinscraft.panilla.paper.v1_21_5.InventoryCleaner(this);
+        switch (Bukkit.getUnsafe().getDataVersion()) {
+            case 4189: //1.21.4
+                packetSerializerClass = com.ruinscraft.panilla.paper.v1_21_4.io.dplx.PacketSerializer.class;
+                protocolConstants = new IProtocolConstants() {
+                    @Override
+                    public int maxBookPages() {
+                        return 100;
+                    }
+                };
+                playerInjector = new com.ruinscraft.panilla.paper.v1_21_4.io.PlayerInjector();
+                packetInspector = new com.ruinscraft.panilla.paper.v1_21_4.io.PacketInspector(this);
+                containerCleaner = new com.ruinscraft.panilla.paper.v1_21_4.InventoryCleaner(this);
+                break;
+            case 4325: //1.21.5
+            case 4435: //1.21.6
+            case 4438: //1.21.7
+                initLatest();
+                break;
+            default:
+                getLogger().warning("Unknown server implementation: " + Bukkit.getVersion() + " (data version "+Bukkit.getUnsafe().getDataVersion()+") is not supported by Panilla. Using latest implementation; may not work.");
+                initLatest();
         }
-        // Fail condition
-        if (Arrays.stream(versions).noneMatch(v->v.equals(Bukkit.getUnsafe().getDataVersion()))) {
-            getLogger().warning("Unknown server implementation: " + Bukkit.getVersion() + " (data version "+Bukkit.getUnsafe().getDataVersion()+") is not supported by Panilla.");
-            Bukkit.getPluginManager().disablePlugin(this);
-        }
+    }
 
+    private void initLatest(){
+        packetSerializerClass = com.ruinscraft.panilla.paper.v1_21_5.io.dplx.PacketSerializer.class;
+        protocolConstants = new IProtocolConstants() {
+            @Override
+            public int maxBookPages() {
+                return 100;
+            }
+        };
+        playerInjector = new com.ruinscraft.panilla.paper.v1_21_5.io.PlayerInjector();
+        packetInspector = new com.ruinscraft.panilla.paper.v1_21_5.io.PacketInspector(this);
+        containerCleaner = new com.ruinscraft.panilla.paper.v1_21_5.InventoryCleaner(this);
     }
 
     @Override

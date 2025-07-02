@@ -3,7 +3,7 @@ rootProject.name = 'panilla'
 // api
 include(':panilla-api')
 
-// bukkit
+// paper
 include(':panilla-paper-v1_21_4')
 include(':panilla-paper-v1_21_5')
 include(':panilla-paper')
@@ -11,10 +11,9 @@ include(':panilla-paper')
 // api
 project(':panilla-api').projectDir = file('api')
 
-// bukkit
+// paper
 project(':panilla-paper-v1_21_4').projectDir = file('paper-v1_21_4')
 project(':panilla-paper-v1_21_5').projectDir = file('paper-v1_21_5')
 project(':panilla-paper').projectDir = file('paper')
 include 'panilla-paper-v1_21_4'
 include 'panilla-paper-v1_21_5'
-
