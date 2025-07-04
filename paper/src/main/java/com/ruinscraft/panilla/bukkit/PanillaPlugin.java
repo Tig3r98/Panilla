@@ -7,6 +7,7 @@ import com.ruinscraft.panilla.api.config.PTranslations;
 import com.ruinscraft.panilla.api.io.IPacketInspector;
 import com.ruinscraft.panilla.api.io.IPacketSerializer;
 import com.ruinscraft.panilla.api.io.IPlayerInjector;
+import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -16,7 +17,6 @@ import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -33,6 +33,7 @@ public class PanillaPlugin extends JavaPlugin implements IPanilla {
     private IPacketInspector packetInspector;
     private IInventoryCleaner containerCleaner;
     private IEnchantments enchantments;
+    private Metrics metrics;
 
     @Override
     public PConfig getPConfig() {
@@ -157,6 +158,9 @@ public class PanillaPlugin extends JavaPlugin implements IPanilla {
                 // Ignore
             }
         }
+
+        /* Initialize Metrics */
+        metrics = new Metrics(this, 26380);
     }
 
     @SuppressWarnings("deprecation")
@@ -208,6 +212,7 @@ public class PanillaPlugin extends JavaPlugin implements IPanilla {
                 // Ignore
             }
         }
+        metrics.shutdown();
     }
 
 }

@@ -21,15 +21,15 @@ public class PanillaCommand implements CommandExecutor {
     private boolean showInfo(CommandSender sender) {
         String version = panillaPlugin.getDescription().getVersion();
         List<String> authors = panillaPlugin.getDescription().getAuthors();
-        sender.sendMessage(ChatColor.GOLD + "Running Panilla version " + version + " by " + String.join(", ", authors));
+        sender.sendMessage(ChatColor.GOLD + "Running PanillaX version " + version + " by " + String.join(", ", authors));
         return true;
     }
 
     private boolean showDebug(CommandSender sender) {
         List<String> debugInfo = new ArrayList<>();
-        debugInfo.add(ChatColor.BOLD + "=== Panilla Debug ===");
+        debugInfo.add(ChatColor.BOLD + "=== PanillaX Debug ===");
         debugInfo.add("Bukkit version: " + Bukkit.getVersion());
-        debugInfo.add("Panilla version: " + panillaPlugin.getDescription().getVersion());
+        debugInfo.add("PanillaX version: " + panillaPlugin.getDescription().getVersion());
         debugInfo.add("Java version: " + System.getProperty("java.version"));
         List<String> pluginNames = new ArrayList<>();
         for (Plugin plugin : Bukkit.getPluginManager().getPlugins()) {
