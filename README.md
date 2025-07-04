@@ -1,10 +1,10 @@
-# Panilla
-Panilla (the name) is a combination of the word Packet and Vanilla (as in Vanilla Minecraft).
+# PanillaX
+PanillaX (the name) is a combination of the word Packet and Vanilla (as in Vanilla Minecraft).
 
-This is a fork of the original [original project](https://www.spigotmc.org/resources/65694/) that only supports recent Paper servers and is easier to compile.
+PanillaX is a fork of [Panilla](https://www.spigotmc.org/resources/65694/) that only supports recent Paper servers and is easier to compile.
 
 ## Overview
-Panilla is software to prevent abusive NBT and packets on Minecraft servers.
+PanillaX is software to prevent abusive NBT and packets on Minecraft servers.
 
 With this software, you will be able to prevent:
 
@@ -23,11 +23,13 @@ With this software, you will be able to prevent:
 
 ## Supported Platforms
 
-**Panilla 2.x is untested software. At the moment, it just adds compatibility for newer versions to old checks.**
+**PanillaX is provided as-is, with no guarantees. At the moment, it just adds compatibility for newer versions to old checks.**
 
 Currently Panilla supports:
-- Paper 1.21.4 (Panilla 2.1.0 recommended)
-- Paper 1.21.5 (untested)
+- Paper 1.21.4 (2.1.0 recommended)
+- Paper 1.21.5
+- Paper 1.21.6
+- Paper 1.21.7
 
 **This fork does NOT support CraftBukkit/Spigot**. It supports Paper derivatives (Purpur, etc.) including Folia. 
 

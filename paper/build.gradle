@@ -12,9 +12,9 @@ repositories {
 }
 
 dependencies {
-    implementation project(':panilla-api')
-    implementation project(':panilla-paper-v1_21_4')
-    implementation project(':panilla-paper-v1_21_5')
+    implementation project(':panillax-api')
+    implementation project(':panillax-paper-v1_21_4')
+    implementation project(':panillax-paper-v1_21_5')
     compileOnly 'io.papermc.paper:paper-api:1.21.4-R0.1-SNAPSHOT' //use 1.21.4 Paper API
 }
 
@@ -40,8 +40,8 @@ apply plugin: 'com.gradleup.shadow'
 shadowJar {
     relocate("de.tr7zw.changeme.nbtapi", "com.ruinscraft.panilla.lib.nbtapi")
 
-    archiveFileName.set("Panilla-${project.version}.jar")
-    destinationDirectory.set(new File("../target/paper"))
+    archiveFileName.set("PanillaX-${project.version}.jar")
+    destinationDirectory.set(new File("../target"))
 }
 
 build.dependsOn(shadowJar)
